@@ -63,40 +63,30 @@ namespace BroApp
 
         private async void UpdatePreview()
         {
-            // Clear existing children from MainThumbnail (assumed to be a container for thumbnails)
             MainThumbnail.Children.Clear();
 
-            // Iterate through each PivotItem in the Tab
             foreach (PivotItem newTab in Tab.Items)
             {
-                // Check if the content of the PivotItem is a WebView
                 if (newTab.Content is WebView newWeb)
                 {
-                    // Create a stream to save the captured image
                     var stream = new InMemoryRandomAccessStream();
 
-                    // Capture the current preview of the WebView to the stream
                     await newWeb.CapturePreviewToStreamAsync(stream);
 
-                    // Create a BitmapImage to hold the captured image
                     BitmapImage bitmapImage = new BitmapImage();
 
-                    // Reset the stream position to the beginning
                     stream.Seek(0);
 
-                    // Set the source of the BitmapImage to the stream
                     await bitmapImage.SetSourceAsync(stream);
 
-                    // Create an Image control to display the captured image
                     Image capturedImage = new Image
                     {
-                        Source = bitmapImage, // Set the image source
-                        Width = 100,          // Set the desired width
-                        Height = 60,         // Set the desired height
-                        Margin = new Thickness(7) // Set margin around the image
+                        Source = bitmapImage,
+                        Width = 100,
+                        Height = 60,
+                        Margin = new Thickness(7)
                     };
 
-                    // Add the captured image to MainThumbnail
                     MainThumbnail.Children.Add(capturedImage);
                 }
             }
