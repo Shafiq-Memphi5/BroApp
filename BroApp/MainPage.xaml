@@ -1,0 +1,48 @@
+﻿<Page
+    x:Class="BroApp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BroApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <CommandBar Grid.Row="0" Background="LightSlateGray">
+            <CommandBar.Content>
+                <TextBlock Text="BroApp" FontSize="30"/>
+            </CommandBar.Content>
+            <AppBarButton Icon="Add" Label="Add" Click="newTab"/>
+            <AppBarButton Icon="Back" Label="Back" Click="backBtn"/>
+            <AppBarButton Icon="Forward" Label="Next" Click="nextBtn"/>
+            <AppBarButton Icon="Clear" Label="Close" Click="closeBtn"/>
+            <AppBarButton Icon="OpenPane" Label="Peview">
+                <AppBarButton.Flyout>
+                    <Flyout Placement="Left">
+                        <ScrollViewer HorizontalScrollBarVisibility="Auto">
+                            <StackPanel Orientation="Horizontal" x:Name="MainThumbnail" Width="500" Height="300">
+                                <Image Source="Assets/Drink.jpeg"/>
+                            </StackPanel>
+                        </ScrollViewer>
+                    </Flyout>
+                </AppBarButton.Flyout>
+            </AppBarButton>
+        </CommandBar>
+        <Pivot Grid.Row="1" x:Name="Tab">
+            <PivotItem Header="Tab 1 - Shafiq">
+                <StackPanel Name="Names">
+                    <TextBlock Text="Shafiq"
+                               FontSize="24"
+                               HorizontalAlignment="Center"
+                               Foreground="White"/>
+                    <WebView Source="https://bing.com" Height="860" />
+                </StackPanel>
+            </PivotItem>
+        </Pivot>
+    </Grid>
+</Page>
