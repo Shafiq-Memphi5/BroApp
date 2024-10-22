@@ -35,13 +35,7 @@
         </CommandBar>
         <Pivot Grid.Row="1" x:Name="Tab">
             <PivotItem Header="Tab 1 - Shafiq">
-                <StackPanel Name="Names">
-                    <TextBlock Text="Shafiq"
-                               FontSize="24"
-                               HorizontalAlignment="Center"
-                               Foreground="White"/>
-                    <WebView Source="https://bing.com" Height="860" />
-                </StackPanel>
+                <WebView Source="https://bing.com" Height="860" />
             </PivotItem>
         </Pivot>
     </Grid>
