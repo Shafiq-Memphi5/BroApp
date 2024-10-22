@@ -35,7 +35,7 @@
         </CommandBar>
         <Pivot Grid.Row="1" x:Name="Tab">
             <PivotItem Header="Tab 1 - Shafiq">
-                <WebView Source="https://bing.com" Height="860" />
+                    <WebView Source="https://bing.com" Height="860" />
             </PivotItem>
         </Pivot>
     </Grid>

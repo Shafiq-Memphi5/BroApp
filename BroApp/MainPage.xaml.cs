@@ -43,17 +43,8 @@ namespace BroApp
                 Source = new Uri("https://bing.com"),
                 Height = 800
             };
-            StackPanel newPanel = new StackPanel();
-            TextBlock newText = new TextBlock
-            {
-                Text = "Shafiq",
-                FontSize = 24,
-                HorizontalAlignment = HorizontalAlignment.Center,
-                Margin = new Thickness(10)
-            };
-            newPanel.Children.Add(newText);
-            newPanel.Children.Add(newWeb);
-            newTab.Content = newPanel;
+            
+            newTab.Content = newWeb;
             Tab.Items.Add(newTab);
             Tab.SelectedItem = newTab;
 
